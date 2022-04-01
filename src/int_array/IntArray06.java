@@ -17,7 +17,10 @@ public class IntArray06 {
         */
 
         int[] arr = {1, 4, 2, 5, 3};
-
+        int[] arr2 = {1, 1, 1, 1};
+        int[] arr3 = {1, 1};//here bug not should be 4 in result it should be 2
+        int[] arr4 = {1};//here bug not should be 2 in result it should be 1
+        int[] arr5 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
         sumOddLengthSubArrays(arr);
 
@@ -68,6 +71,8 @@ public class IntArray06 {
     }
 
 
+    //https://leetcode.com/problems/sum-of-all-odd-length-subarrays/
+
     /**
      * Input: arr = [1,4,2,5,3]
      * Output: 58
@@ -93,15 +98,26 @@ public class IntArray06 {
             }
         }
 
-        arrOddLength = IntStream.of(arrOddLength).filter(value -> value != 0).toArray();//1,3,5
+        int[] clone = arrOddLength.clone();
+        int[] clone2 = IntStream.of(arrOddLength).filter(value -> value != 0 && value != 1 && value != clone[length - 1]).toArray();
+        System.out.println(Arrays.toString(clone2));
+        System.out.println(Arrays.toString(clone));
         System.out.println(Arrays.toString(arrOddLength));
 
-
-        for (int k = 0; k < arrOddLength.length; k++) {
-
-
-
+        int sum = Arrays.stream(nums).sum() * 2;
+        System.out.println(sum);
+        for (int n = 0; n < arrOddLength.length; n++) {
         }
+    }
+
+    public static void sumOddLengthSubarrays3(int[] arr) {
+        int total = 0;
+
+        for (int window = 1; window <= arr.length; window += 2)
+            for (int i = 0; i + window <= arr.length; i++)
+                for (int j = i; j < i + window; j++)
+                    total += arr[j];
+        System.out.println(total);
     }
 
 }

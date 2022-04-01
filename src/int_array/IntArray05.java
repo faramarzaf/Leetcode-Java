@@ -61,23 +61,6 @@ public class IntArray05 {
     }
 
 
-    /***
-     * Input: sentences = ["alice and bob love leetcode", "i think so too", "this is great thanks very much"]
-     * Output: 6
-     */
-    public static void mostWordsFound(String[] sentences) {
-        int asInt = Stream.of(sentences).mapToInt(s -> s.split(" ").length).max().getAsInt();
-        System.out.println(asInt);
-    }
-
-    public static void mostWordsFound2(String[] sentences) {
-        int max = 0;
-        for (int i = 0; i < sentences.length; i++) {
-            max = Math.max(max, (sentences[i].split(" ")).length);
-        }
-        System.out.println(max);
-    }
-
 
     /**
      * Input: nums = [8,1,2,2,3]
