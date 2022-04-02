@@ -9,6 +9,27 @@ public class Strings0 {
 
     public static void main(String[] args) {
         //  sumOfNonZeroElements2();
+        reverse("eulb si yks eht");
+    }
+
+
+    public static void reverse(String s) {
+        StringBuilder sb = new StringBuilder();
+        String s1 = null;
+        for (int i = s.length() -1; i >= 0; i--) {
+            char c = s.charAt(i);
+             s1 = sb.append(c).toString();
+        }
+        System.out.println(s1);
+    }
+
+
+    /**
+     * Input: s = "the sky is blue"
+     * Output: "blue is sky the"
+     */
+    public static void reverseWords(String s) {
+        
     }
 
     /**
