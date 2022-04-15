@@ -1,6 +1,7 @@
 package int_array;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class IntArray01 {
 
@@ -28,11 +29,11 @@ public class IntArray01 {
 
         //  buildArray(nums3);
 
-        shiftZeroToStart(nums);
+       /* shiftZeroToStart(nums);
         shiftZeroToStart(nums2);
         shiftZeroToStart(nums3);
         shiftZeroToStart(nums4);
-        shiftZeroToStart(nums5);
+        shiftZeroToStart(nums5);*/
 
     }
 
@@ -133,6 +134,15 @@ public class IntArray01 {
         System.out.println(Arrays.toString(nums));
     }
 
+
+    //  {4, 1, 0, 3, 5, 2}   -->  {0,4,1,3,5,2}
+    private static void shiftZeroToStart2(int[] nums) {
+        long zeros = Arrays.stream(nums).filter(num -> num == 0).count();
+        int[] nonZeroArr = Arrays.stream(nums).filter(num -> num != 0).toArray();
+        int[] zeroArray = new int[(int) zeros];
+        int[] merged = IntStream.concat(IntStream.of(zeroArray), IntStream.of(nonZeroArr)).toArray();
+        System.out.println(Arrays.toString(merged));
+    }
 
     // {1, 4, 0, 2}
     private static void shiftZeroToEnd2(int[] nums) {
