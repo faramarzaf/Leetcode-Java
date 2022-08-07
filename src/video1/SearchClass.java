@@ -59,7 +59,7 @@ public class SearchClass {
         int right = arr.length - 1;
 
         while (left <= right) {
-            int mid = (right - left) / 2;
+            int mid = left + (right - left) / 2;
 
             if (item == arr[mid]) return true;
             else if (item < arr[mid]) {
